@@ -69,9 +69,9 @@ class MultiConstraint extends SemverMultiConstraint
             for ($i = 1, $l = \count($constraints); $i < $l; $i++) {
                 $right = $constraints[$i];
                 if (
-                    $left instanceof self
+                    $left instanceof SemverMultiConstraint
                     && $left->conjunctive
-                    && $right instanceof self
+                    && $right instanceof SemverMultiConstraint
                     && $right->conjunctive
                     && \count($left->constraints) === 2
                     && \count($right->constraints) === 2
