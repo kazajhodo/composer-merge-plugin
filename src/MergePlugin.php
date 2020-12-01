@@ -344,13 +344,6 @@ class MergePlugin implements PluginInterface, EventSubscriberInterface
                 $this->state->shouldOptimizeAutoloader()
             );
 
-            if ($this->state->forceUpdate()) {
-                // Force update mode so that new packages are processed rather
-                // than just telling the user that composer.json and
-                // composer.lock don't match.
-                $installer->setUpdate(true);
-            }
-
             $status = $installer->run();
             if ($status !== 0) {
                 if (!$this->state->isComposer1() && $lockBackup) {
